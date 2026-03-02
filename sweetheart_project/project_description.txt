@@ -1,0 +1,16 @@
+Project Name: Sweetheart
+
+Purpose:
+Sweetheart is a simple web application where users can share heartfelt confessions or love stories. 
+The purpose of the app is to create a safe, fun, and visually appealing space for people to express their feelings and read the experiences of others.
+
+Intended Users:
+The app is intended for anyone who wants to post or read sweet, heartwarming messages anonymously or with their name.
+
+Key Features:
+	1.	User Registration: Users can fill out a registration form with their first name, last name, username or email, and password.
+	2.	User Login: Users can log in using their username or email and password. 
+	3.	Create a Confession: Users can write a short message or confession and submit it using a simple form.
+	4.	View Confessions: Users can view a collection of confessions and stories posted by others, either anonymously or with the author’s name.
+	5.	Navigation: Each page has a consistent navigation bar for easy access to Register, Login, Confess, and LoveNotes pages.
+
