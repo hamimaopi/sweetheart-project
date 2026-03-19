@@ -6,7 +6,7 @@ Users can create accounts, log in, and post confessions. Other users can reply t
 ## ER Diagrams
 
 ### Basic ERD
-![Basic ERD](erd.png)
+![Basic ERD](erd-basic.png)
 
-### Extended ERD (with Reply)
+### Possible Extension
 ![Extended ERD](erd-possible-extension.png)
