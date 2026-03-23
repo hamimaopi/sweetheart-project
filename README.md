@@ -10,3 +10,8 @@ Users can create accounts, log in, and post confessions. Other users can reply t
 
 ### Possible Extension
 ![Extended ERD](erd-possible-extension.png)
+
+
+## Relations
+
+![Relations Diagram](relations.png)
