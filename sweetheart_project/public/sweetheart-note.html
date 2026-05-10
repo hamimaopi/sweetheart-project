@@ -2,40 +2,60 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Sweetheart - View Confessions</title>
+  <title>Sweetheart - Love Notes</title>
   <link rel="stylesheet" href="styles/shstyle.css">
 </head>
 <body>
 
-<nav>
-  <a href="sweetheart-register.html">Register</a>
-  <a href="sweetheart-login.html">Login</a>
-  <a href="sweetheart-confess.html">Confess</a>
-  <a href="sweetheart-note.html">LoveNotes</a>
-</nav>
+  <nav>
+    <a href="sweetheart-register.html">Register</a>
+    <a href="sweetheart-login.html">Login</a>
+    <a href="sweetheart-confess.html">Confess</a>
+    <a href="sweetheart-profile.html" id="profileLink" style="display: none;">Profile</a>
+    <a href="sweetheart-note.html">LoveNotes</a>
+    <span id="userWelcome" style="margin-left: auto; color: var(--primary); font-weight: 600; display: none;">Hi, <span id="userNameDisplay"></span>!</span>
+    <a href="#" id="logoutBtn" style="display: none; font-size: 14px; opacity: 0.8;">Logout</a>
+  </nav>
 
-<div class="container">
-  <h1>View Confessions</h1>
-  
-  <img src="images/rose-letter.jpg" alt="Rose Letter" class="cute-img">
- 
-  <div class="confession">
-    <p><strong>Opu:</strong> I've been falling for him more and more ever day.</p>
-  </div>
-  <div class="confession">
-    <p><strong>Luna:</strong> Loving her has been the easiest thing I’ve ever done.</p>
-  </div>
-  <div class="confession">
-    <p><strong>Anonymous:</strong> I still think about you every day.</p>
-  </div>
-  <div class="confession">
-    <p><strong>Sarah:</strong> His smile lights up my entire world.</p>
-  </div>
-  <div class="confession">
-    <p><strong>Alex:</strong> I’ve had a crush on my best friend for years.</p>
+  <div class="container">
+    <img src="images/rose-letter.jpg" alt="Rose Letter" class="cute-img">
+    <div class="content">
+      <h1>Love Notes ❤️</h1>
+      <p style="text-align: center; color: #888; margin-bottom: 30px;">All the heartfelt secrets shared in our community.</p>
+      
+      <div id="notesList">
+        <!-- Confessions will be loaded here -->
+      </div>
+    </div>
   </div>
 
-</div>
+  <script src="scripts/auth.js"></script>
+  <script>
+    async function loadAllNotes() {
+        try {
+            const response = await fetch('/confessions');
+            const confessions = await response.json();
+            const notesList = document.getElementById('notesList');
+            
+            if (confessions.length === 0) {
+                notesList.innerHTML = '<p style="text-align: center; color: #888;">No notes shared yet. ❤️</p>';
+                return;
+            }
 
+            confessions.forEach(c => {
+                const card = document.createElement('div');
+                card.className = 'confession-card';
+                card.innerHTML = `
+                    <strong>Someone confessed:</strong>
+                    <p>${c.message}</p>
+                `;
+                notesList.appendChild(card);
+            });
+        } catch (err) {
+            console.error("Error loading notes:", err);
+        }
+    }
+    document.addEventListener('DOMContentLoaded', loadAllNotes);
+  </script>
 </body>
 </html>
